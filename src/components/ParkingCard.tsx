@@ -12,7 +12,7 @@ interface ParkingLot {
     totalSpaces: number;
     hourlyRate: number;
     distance: number;
-    currentUsage: number;
+    currentUsage?: number;
     score?: number;
 }
 
@@ -21,7 +21,7 @@ interface ParkingCardProps {
 }
 
 const ParkingCard: React.FC<ParkingCardProps> = ({ parkingLot }) => {
-    const { name, totalSpaces, hourlyRate, distance, currentUsage } = parkingLot;
+    const { name, totalSpaces, hourlyRate, distance, currentUsage = 0 } = parkingLot;
 
     // 根据使用率计算剩余车位
     const remainingSpaces = Math.round(totalSpaces * (1 - currentUsage / 100));

@@ -35,7 +35,7 @@ interface ParkingLot {
     totalSpaces: number;
     hourlyRate: number;
     distance: number;
-    currentUsage: number;
+    currentUsage?: number;  // 标记为可选字段
     score?: number;
 }
 
@@ -55,7 +55,7 @@ const App: React.FC = () => {
     const [recommendations, setRecommendations] = useState<ParkingLot[]>([]);
 
     // 获取推荐停车场
-    const getRecommendations = (time: Date, userLocation: UserLocation, preferences: UserPreferences = {}): ParkingLot[] => {
+    const getRecommendations = (time: Date, userLocation: UserLocation, preferences: UserPreferences): ParkingLot[] => {
         // 获取当前小时
         const hour = time.getHours();
 

@@ -2,10 +2,10 @@ import React from 'react';
 import { usageByTime } from '../data/usageData';
 
 interface UsageChartProps {
-    parkingId?: number;
+    parkingId?: number; // 可选参数，未来用于显示特定停车场的数据
 }
 
-const UsageChart: React.FC<UsageChartProps> = ({ parkingId }) => {
+const UsageChart: React.FC<UsageChartProps> = () => {
     // 生成24小时数据点
     const hours = [...Array(24).keys()];
 
